@@ -20,7 +20,7 @@ The text box is present below the "Write below:" sign. This is where you will ty
 As you type your response, if you get the character of the word correct, the character will change its color to green:
 
 ![correct](https://github.com/samriddhinechali1/typing-speed-test/assets/120707106/d5dcee42-ee63-4b2d-b426-f0f321ee361a)
-If you make an error and get a character wrong, the incorrect charcater will be shown in red:
+If you make an error and get a character wrong, the incorrect character will be shown in red:
 
 ![error](https://github.com/samriddhinechali1/typing-speed-test/assets/120707106/ea40fa1d-521c-4ad9-9a6b-e7c30deacedc)
 ### End of Test
