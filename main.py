@@ -48,21 +48,21 @@ class MainScreen:
     def start_page(self):
         # Starting Page that shows the instruction on what to do next
 
-        self.main_label = Label(text="Test your typing speed abilities", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 25))
+        self.main_label = Label(text="Test your typing speed abilities", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 25))
         self.main_label.grid(column=0, row=0, columnspan=3, pady=20, padx=50)
 
-        start = Button(text="Start test", bg="#85E6C5", fg=BACKGROUND_COLOR, highlightthickness=0,
-                            font=("Arial", 20), command=lambda: [self.create_text(), start.destroy(), info.destroy()])
+        start = Button(text="START TEST", bg="#85E6C5", fg=BACKGROUND_COLOR, highlightthickness=0,
+                            font=("Courier", 20), command=lambda: [self.create_text(), start.destroy(), info.destroy()])
         start.grid(column=1, row=2, pady=50, padx=20)
 
         info = Button(text="INSTRUCTION", bg=BUTTON_COLOR, fg=BACKGROUND_COLOR,
-                      font=("Arial", 18, "bold"), command=lambda: [self.show_info(),
+                      font=("Courier", 18, "bold"), command=lambda: [self.show_info(),
                                                                    start.destroy(), info.destroy()])
         info.grid(column=1, row=1, pady=50)
 
     def show_info(self):
         self.main_label.config(text="Welcome to Typing Speed Test!")
-        text_info = Label(font=("Arial", 18), bg=BACKGROUND_COLOR, fg=TEXT_COLOR, anchor=W, justify="left",
+        text_info = Label(font=("Courier", 18), bg=BACKGROUND_COLOR, fg=TEXT_COLOR, anchor=W, justify="left",
                           text="This app allows you to check your typing speed.\n"
                                "Press on start test to commence forward.\n"
                                "Once you start typing, the timer will start.\n"
@@ -76,10 +76,10 @@ class MainScreen:
                                "Hard - This takes you to the difficult level.")
         text_info.grid(column=0, row=1, pady=20)
 
-        msg_luck = Label(text="HAPPY TYPING", font=("Arial", 20, "bold"), bg=BACKGROUND_COLOR, fg=TEXT_COLOR)
+        msg_luck = Label(text="HAPPY TYPING", font=("Courier", 20, "bold"), bg=BACKGROUND_COLOR, fg=TEXT_COLOR)
         msg_luck.grid(column=0, row=2, pady=20)
 
-        go_back = Button(text="GO BACK", bg=BACKGROUND_COLOR, fg=TEXT_COLOR, font=("Arial", 18),
+        go_back = Button(text="GO BACK", bg=BACKGROUND_COLOR, fg=TEXT_COLOR, font=("Courier", 18),
                          command=lambda: [self.clear_screen(),
                                           self.start_page(),
                                           text_info.destroy(),
@@ -98,7 +98,7 @@ class MainScreen:
 
             for word in range(30):
                 self.set_of_words.append(random.choice(words).lower())
-            self.generated_text = Text(self.window, fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 20, "bold"),
+            self.generated_text = Text(self.window, fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 20, "bold"),
                                        height=4, width=60, wrap="word")
             self.generated_text.grid(column=0, row=1, columnspan=9, pady=30)
             self.generated_text.insert(END, self.change_into_text(self.set_of_words).lower())
@@ -279,45 +279,45 @@ class MainScreen:
 
     def create_widgets(self):
         # characters per minute
-        cpm_label = Label(text=f"CPM: ", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 14))
+        cpm_label = Label(text=f"CPM: ", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14))
         cpm_label.grid(column=2, row=0, sticky=E)
-        self.cpm_value = Label(text="0", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 14))
+        self.cpm_value = Label(text="0", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14))
         self.cpm_value.grid(column=3, row=0, sticky=W)
 
         # words per minute
 
-        wpm_label = Label(text=f"WPM: ", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 14))
+        wpm_label = Label(text=f"WPM: ", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14))
         wpm_label.grid(column=4, row=0, sticky=E)
-        self.wpm_value = Label(text="0", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 14))
+        self.wpm_value = Label(text="0", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14))
         self.wpm_value.grid(column=5, row=0, sticky=W)
 
         # Mistakes
 
-        mist_label = Label(text=f"MISTAKES: ", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 14))
+        mist_label = Label(text=f"MISTAKES: ", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14))
         mist_label.grid(column=6, row=0, sticky=E)
-        self.mistake_value = Label(text="0", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 14))
+        self.mistake_value = Label(text="0", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14))
         self.mistake_value.grid(column=7, row=0, sticky=W)
 
         # Timer
 
-        timer_label = Label(text=f"TIME: ", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 14))
+        timer_label = Label(text=f"TIME: ", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14))
         timer_label.grid(column=0, row=0, sticky=E)
-        self.timer_text = Label(text="0", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 14))
+        self.timer_text = Label(text="0", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14))
         self.timer_text.grid(column=1, row=0, sticky=W)
 
         # Entry field
-        entry_label = Label(text=f"WRITE BELOW: ", width=15, fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 14))
+        entry_label = Label(text=f"WRITE BELOW: ", width=15, fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14))
         entry_label.grid(column=1, row=5)
         self.user_entry = StringVar()
 
         self.user_entry.trace_add('write', self.text_callback)
         self.entry_field = Entry(self.window, width=95, textvariable=self.user_entry, bg=EXTRA_COLOR, fg=TEXT_COLOR,
-                                 font=("Arial", 12, "bold"))
+                                 font=("Courier", 12, "bold"))
         self.entry_field.grid(column=1, row=6, columnspan=8, pady=15)
         self.entry_field.bind("<BackSpace>")
 
         # restart Button
-        restart = Button(text="RESTART", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Arial", 14)
+        restart = Button(text="RESTART", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14)
                          , command=self.restart)
         restart.grid(column=8, row=7)
 
