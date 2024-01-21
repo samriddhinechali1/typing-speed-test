@@ -30,6 +30,8 @@ class MainScreen:
         self.time = None
         self.points = 0
         self.time_start = False
+        with open("result.txt") as result:
+            self.high_score = int(data.read())
         self.set_of_words = []
         self.written_words = []
         self.text = ""
@@ -276,6 +278,13 @@ class MainScreen:
                                    f"WPM is: {wpm}, \n"
                                    f"Net WPM is: {net_wpm}.\n"
                                    f"Accuracy is: {'%.2f' % accuracy}.")
+
+    def save_score(self, net_wpm):
+        """Saves the highest score automatically in result.txt"""
+        if self.net_wpm > self.high_score:
+            self.high_score = self.new_wpm
+            with open("result.txt", mode="w") as result:
+                result.write(f"{self.high_score}")
 
     def create_widgets(self):
         # characters per minute
