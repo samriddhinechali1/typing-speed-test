@@ -205,8 +205,10 @@ class MainScreen:
                 self.written_words.append(self.written_words[self.words_points -1][:-self.difference])
 
             if keyboard.read_key() != "backspace":
+                # Stops the program after it hits 60 seconds and also disables the entry field
                 if self.timer_text['text'] == 60:
                     self.time_start = False
+                    self.entry_field.config(state='disabled')
                     self.count_score()
                 if self.written_words[self.words_points - 1][number] == self.set_of_words[self.words_points - 1][number]:
                     self.spelling.append("correct")
@@ -244,9 +246,9 @@ class MainScreen:
         elif len(self.entry_text) == 0:
             self.time_start = False
         # Disallow users to write after 1 minute
-        if self.timer_text['text'] == 60:
-            self.time_start = False
-            self.entry_field.config(state='disabled')
+        # if self.timer_text['text'] == 60:
+        #     self.time_start = False
+        #     self.entry_field.config(state='disabled')
 
     def update_scoreboard(self):
         """Updates all the scoreboard as time changes"""
