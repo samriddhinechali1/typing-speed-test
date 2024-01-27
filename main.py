@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 import random
 import keyboard
+from english_words import get_english_words_set
 BACKGROUND_COLOR = "#1A374D"
 BUTTON_COLOR = "#6998AB"
 TEXT_COLOR = "#B1D0E0"
@@ -104,6 +105,17 @@ class MainScreen:
                                        height=4, width=60, wrap="word")
             self.generated_text.grid(column=0, row=1, columnspan=9, pady=30)
             self.generated_text.insert(END, self.change_into_text(self.set_of_words).lower())
+
+    def create_hard_level(self):
+        self.clear_screen()
+        self.create_widgets()
+
+        for word in range(30):
+            self.set_of_words.append(random.choice(list(get_english_words_set(['web2'], lower=True))))
+        self.generated_text = Text(self.window, fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 20, "bold"),
+                                   height=4, width=60, wrap="word")
+        self.generated_text.grid(column=0, row=1, columnspan=9, pady=30)
+        self.generated_text.insert(END, self.change_into_text(self.set_of_words).lower())
 
     def change_into_text(self, list_of_words):
         text = ' '.join(list_of_words)
@@ -324,6 +336,11 @@ class MainScreen:
                                  font=("Courier", 12, "bold"))
         self.entry_field.grid(column=1, row=6, columnspan=8, pady=15)
         self.entry_field.bind("<BackSpace>")
+
+        #Hard Level button
+        hard = Button(text="HARD", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14)
+                         , command=lambda: [self.create_hard_level()])
+        hard.grid(column=1, row=7)
 
         # restart Button
         restart = Button(text="RESTART", fg=TEXT_COLOR, bg=BACKGROUND_COLOR, font=("Courier", 14)
