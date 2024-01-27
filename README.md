@@ -31,4 +31,4 @@ Once a minute has passed since you started typing your response, the app will di
 ***
 This app requires the following Python libraries:
 * Tkinter
-* If I ever add a hard level, the package will go here
+* english_words
